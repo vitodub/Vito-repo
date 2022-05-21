@@ -7,7 +7,7 @@ b = gets.to_i
 puts "Введите c"
 c = gets.to_i
 
-d = b ** 2 - 4 * a * c
+d = b**2 - 4 * a * c
   
 if d < 0
   puts "Корней нет"
