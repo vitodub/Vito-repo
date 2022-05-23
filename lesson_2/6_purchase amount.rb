@@ -1,4 +1,4 @@
-products = Hash.new
+products = {}
 sum = 0
 
 loop do
@@ -14,12 +14,12 @@ loop do
 
   total_product_price = price * quantity
 
-  products[product] = { "price" => price, "quantity" => quantity, "total_price" => total_product_price }
+  products[product] = { price: price, quantity: quantity, total_price: total_product_price }
 end
 
 products.each do |a, b|
-  puts "Куплен товар #{a}, цена за единицу #{b["price"]}, количество #{b["quantity"]}. Итоговая сумма за товар #{b["total_price"]}."
-  sum +=b["total_price"]
+  puts "Куплен товар #{a}, цена за единицу #{b[:price]}, количество #{b[:quantity]}. Итоговая сумма за товар #{b[:total_price]}."
+  sum +=b[:total_price]
 end
 
 puts "Итоговая сумма всех покупок в корзине: #{sum}."
