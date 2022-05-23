@@ -14,7 +14,7 @@ def date_calc(day, month, leap = [])
 end
 
 leap = [31, 29, 31, 30, 31, 30, 31, 30, 31, 30, 31, 30]
-non_leap = [31, 28, 31, 30, 31, 30, 31, 30, 31, 30, 31, 30]
+non_leap = leap.clone.fill(28, 1, 1)
 
 puts "Введите день"
 day = gets.to_i
