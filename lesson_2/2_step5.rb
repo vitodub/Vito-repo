@@ -1,4 +1,4 @@
-arr = Array.new
+arr = []
 value = 10
 
 while value <= 100 
