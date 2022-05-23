@@ -1,14 +1,13 @@
 def leap_year?(year)
-  (year % 4 == 0 && year % 100 == 0 && year % 400 == 0)
+  (year % 4 == 0 && year % 100 != 0) || year % 400 == 0
 end
 
 def date_calc(day, month, leap = [])
-
   date_number = 0
 
   unless month == 1
     for index in 0..(month - 2)
-    date_number += leap[index]
+      date_number += leap[index]
     end
   end
   puts "Порядковый номер даты: " + (date_number + day).to_s
