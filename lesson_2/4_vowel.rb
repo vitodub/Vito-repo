@@ -1,4 +1,4 @@
-vowel_letters = Hash.new
+vowel_letters = {}
 letter_number = 1
 
 for letter in "a".."z"
