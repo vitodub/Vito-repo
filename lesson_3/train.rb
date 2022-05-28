@@ -17,11 +17,11 @@ class Train
   end
 
   def add_wagon
-    @speed == 0 ? @wagon_amount +=1 : (puts "Поезд движется. Это невозможно")
+    @speed == 0 ? @wagon_amount += 1 : (puts "Поезд движется. Это невозможно")
     end
 
   def delete_wagon
-    @speed == 0 ? @wagon_amount -=1 : (puts "Поезд движется. Это невозможно")
+    @speed == 0 ? @wagon_amount -= 1 : (puts "Поезд движется. Это невозможно")
   end
 
   def add_route(route)
@@ -30,18 +30,24 @@ class Train
   end
 
   def move_to_next_station
-    @current_station == @route[-1] ? (puts "Эта станция конечная") : @current_station = @route[@route.index(@current_station) + 1]
+    @current_station == @route[-1] ? (puts "Эта станция конечная") : @current_station = @route[find_index + 1]
   end
 
   def move_to_previous_station
-    @current_station == @route[0] ? (puts "Эта станция начальная") : @current_station = @route[@route.index(@current_station) - 1]
+    @current_station == @route[0] ? (puts "Эта станция начальная") : @current_station = @route[find_index - 1]
   end
 
   def show_next_station
-    @current_station == @route[-1] ? (puts "Эта станция конечная") : @route[@route.index(@current_station) + 1]
+    @current_station == @route[-1] ? (puts "Эта станция конечная") : @route[find_index + 1]
   end
 
   def show_previous_station
-    @current_station == @route[0] ? (puts "Эта станция начальная") : @route[@route.index(@current_station) - 1]
+    @current_station == @route[0] ? (puts "Эта станция начальная") : @route[find_index - 1]
+  end
+  
+  private
+  
+  def find_index
+    @route.index(@current_station)
   end
 end
