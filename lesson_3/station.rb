@@ -3,16 +3,16 @@ class Station
 
   def initialize(name)
     @name = name
-    @trains_on_station = []
+    @trains = []
   end
 
   def accept_train(train)
-    @trains_on_station << train
+    @trains << train
   end
 
   def show_train_types(type)
-    specific_trains = @trains_on_station.select { |t| t.type == type }
-    amount_of_trains = @trains_on_station.count { |t| t.type == type }
+    specific_trains = @trains.select { |t| t.type == type }
+    amount_of_trains = @train.count { |t| t.type == type }
     return specific_trains, amount_of_trains
   end
 
