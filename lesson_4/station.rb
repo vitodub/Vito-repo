@@ -11,9 +11,7 @@ class Station
   end
 
   def show_train_types(type)
-    specific_trains = @trains.select { |t| t.type == type }
     amount_of_trains = @trains.count { |t| t.type == type }
-    return specific_trains, amount_of_trains
   end
 
   def send_train(train)
