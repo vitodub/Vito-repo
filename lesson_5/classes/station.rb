@@ -13,7 +13,9 @@ class Station
   def initialize(name)
     @name = name
     @trains = []
-    @@all_stations << self
+    @@stations_list << self
+
+    register_instance
   end
 
   def accept_train(train)
