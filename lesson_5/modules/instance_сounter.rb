@@ -13,13 +13,11 @@ module InstanceCounter
 
   module InstanceMethods
 
-# Эту конструкцию я подглядел, но как работает разобрался. Без чужой подскази на метод class_eval наверно бы не вышел
+# Понял, работаем с инстанс-переменными уровня класса
     private
     def register_instance
-      self.class.class_eval do 
-        self.instances = self.instances.nil? ? 1 : self.instances + 1
-        puts self.instances
-      end
+      self.class.instances = self.class.instances.nil? ? 1 : self.class.instances + 1
+      puts self.class.instances
     end
   end
 end
