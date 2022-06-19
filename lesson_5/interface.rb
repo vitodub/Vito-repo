@@ -1,4 +1,4 @@
-class Interface
+cclass Interface
 
 def call
   loop do
@@ -11,12 +11,6 @@ private
 Методы show_list_s, show_list_t, show_list_r вспомогательные, доступа к ним у пользователя быть не должно. Поэтому поместил в private. 
 Также не должно быть прямого доступа к редактированию интерфейса. Поэтому run_interface также private
 =end
-
-def initialize
-  @stations = []
-  @trains = []
-  @routes = []
-end
 
 def run_interface
   
@@ -54,12 +48,12 @@ def run_interface
           train_create
 
         when 20
-          if @trains.empty?
+          if Train.all.empty?
             puts "Доступных поездов нет"
 
           else
             puts "Укажите номер поезда"
-            show_list_t(@trains)
+            show_list_t(Train.all)
     
             t_number = gets.to_i - 1
 
@@ -103,12 +97,12 @@ def run_interface
         route_create
 
     when 30
-      if @routes.empty?
+      if Route.all.empty?
         puts "Доступных маршрутов нет"
     
       else 
         puts "Укажите номер маршрута"
-        show_list_r(@routes)
+        show_list_r(Route.all)
       end
     
       r_number = gets.to_i - 1
@@ -136,13 +130,13 @@ end
 
 def station_create 
   puts "Введите название станции"
-  @stations << Station.new(gets.chomp)
+  Station.new(gets.chomp)
   puts "Станция создана"
 end
 
 def train_create 
   puts "Введите номер поезда"
-  @trains << Train.new(gets.to_i)
+  Train.new(gets.to_i)
   puts "Поезд создан"
 end
 
@@ -156,103 +150,103 @@ def route_create
   puts "Введите конечную станцию"
   r_finish = gets.chomp 
 
-  @routes << Route.new(r_number, r_start, r_finish)
+  Route.new(r_number, r_start, r_finish)
   puts "Маршрут создан"
 end
 
 def route_add_station 
-  if @stations.empty?
+  if Station.all.empty?
     puts "Станций нет"
 
   else 
     puts "Укажите номер станции"
-    show_list_s(@stations)
+    show_list_s(Station.all)
   end
 
   s_number = gets.to_i - 1
 
-  @routes[r_number].add_station(@stations[s_number])
+  Route.all[r_number].add_station(Station.all[s_number])
   puts "Станиця добавлена"
 end
 
 def route_delete_station 
   puts "Укажите номер станции, которую нужно удалить"
   i = 0
-  while i < @routes[r_number].stations.length do
-    puts "#{(i + 1)}. #{@routes[r_number].stations[i].name}"
+  while i < Route.all[r_number].stations.length do
+    puts "#{(i + 1)}. #{Route.all[r_number].stations[i].name}"
     i += 1
   end
     
   s_number = gets.to_i - 1
 
-  @routes[r_number].delete_station(@routes[r_number].stations[s_number])
+  Route.all[r_number].delete_station(Route.all[r_number].stations[s_number])
   puts "Станиця удалена"
 end
 
 def train_set_route 
-  if @routes.empty?
+  if Route.all.empty?
     puts "Доступных маршрутов нет"
     
   else 
     puts "Укажите номер маршрута"      
-    show_list_r(@routes)
+    show_list_r(Route.all)
   end
 
   r_number = gets.to_i - 1
 
-  @trains[t_number].add_route(@routes[r_number])
+  Train.all[t_number].add_route(Route.all[r_number])
   puts "Маршрут назначен поезду"
 end
 
 def train_add_wagon 
-  @trains[t_number].add_wagon(Wagon.new)
+  Train.all[t_number].add_wagon(Wagon.new)
   puts "Вагон добавлен к поезду"
 end
 
 def train_delete_wagon 
-  if @trains[t_number].wagons.empty?
+  if Train.all[t_number].wagons.empty?
     puts "У поезда нет вагонов"
 
   else
-    @trains[t_number].delete_wagon
+    Train.all[t_number].delete_wagon
     puts "Вагон отцеплен от поезда"
   end
 end
 
 def train_move_to_next_station 
-  if @trains[t_number].route == nil
+  if Train.all[t_number].route == nil
     puts "У поезда нет маршрута. Добавьте маршрут"
 
   else
-    @trains[t_number].move_to_next_station
+    Train.all[t_number].move_to_next_station
     puts "Вагон перемещен по маршруту вперед"
   end
 end
 
 def train_move_to_previous_station 
-  if @trains[t_number].route == nil
+  if Train.all[t_number].route == nil
     puts "У поезда нет маршрута. Добавьте маршрут"
   else
-    @trains[t_number].move_to_previous_station
+    Train.all[t_number].move_to_previous_station
     puts "Вагон перемещен по маршруту назад"
   end
 end
 
 def route_show_stations 
-  show_list_r(@routes)
+  show_list_r(Route.all)
     
   r_number = gets.to_i - 1
 
-  @routes[r_number].show_all_stations
+  Route.all[r_number].show_all_stations
 end
 
 def station_show_trains 
-  if @stations.empty?
+  if Station.all.empty?
     puts "Доступных станций нет"
 
   else
     puts "Укажите название станции"
-    show_list_s(@stations)        
+    show_list_s(Station.all)        
 
     s_number = gets.to_i - 1
 
@@ -264,7 +258,7 @@ def station_show_trains
 
     t_choice == 1 ? type = "passenger" : type = "cargo"
  
-    puts "Количество поездов заданного типа: #{@stations[s_number].show_train_types(type)}"
+    puts "Количество поездов заданного типа: #{Station.all[s_number].show_train_types(type)}"
   end
 end
 
