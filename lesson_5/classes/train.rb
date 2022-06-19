@@ -8,7 +8,7 @@ class Train
 
   @@trains_list = []
 
-  def self.find_number(number)
+  def self.find_train(number)
     @@trains_list.find { |train| train.number == number }
   end
 
