@@ -3,12 +3,15 @@ require './modules/instance_сounter.rb'
 class Route
   include InstanceCounter
   attr_reader :number, :stations
+  
+  @@routes_list = []
 
   def initialize(number, start_station, finish_station)
     @number = number
     @stations = []
     @stations << start_station
     @stations << finish_station
+    @@routes_list << self
   end
 
   def add_station(station)
