@@ -11,6 +11,10 @@ class Train
   def self.find_train(number)
     @@trains_list.find { |train| train.number == number }
   end
+  
+   def self.all
+    @@trains_list
+  end
 
   def initialize(number) #номер уже был
     @number = number 
