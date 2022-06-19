@@ -17,7 +17,7 @@ module InstanceCounter
     private
     def register_instance
       self.class.class_eval do 
-        self.instances = (self.instances.nil?) ? 1 : self.instances + 1
+        self.instances = self.instances.nil? ? 1 : self.instances + 1
         puts self.instances
       end
     end
