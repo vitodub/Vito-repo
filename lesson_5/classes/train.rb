@@ -6,14 +6,14 @@ class Train
   include Manufacturer
   attr_reader :type, :speed, :current_station, :wagons, :number, :route
 
-  @@trains_list = []
+  @@list = []
 
   def self.find(number)
-    @@trains_list.find { |train| train.number == number }
+    @@list.find { |train| train.number == number }
   end
   
   def self.all
-    @@trains_list
+    @@list
   end
 
   def initialize(number) #номер уже был
@@ -23,7 +23,7 @@ class Train
     @route
     @current_station
     @type 
-    @@trains_list << self
+    @@list << self
 
     register_instance
   end
