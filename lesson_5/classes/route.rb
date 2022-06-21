@@ -4,10 +4,10 @@ class Route
   include InstanceCounter
   attr_reader :number, :stations
 
-  @@routes_list = []
+  @@list = []
 
   def self.all
-    @@routes_list
+    @@list
   end
 
   def initialize(number, start_station, finish_station)
@@ -15,7 +15,7 @@ class Route
     @stations = []
     @stations << start_station
     @stations << finish_station
-    @@routes_list << self
+    @@list << self
 
     register_instance
   end
