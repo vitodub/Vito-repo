@@ -1,4 +1,4 @@
-cclass Interface
+class Interface
 
 def call
   loop do
