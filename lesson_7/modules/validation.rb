@@ -4,5 +4,4 @@ module Validation
   rescue
     false
   end
-
 end
