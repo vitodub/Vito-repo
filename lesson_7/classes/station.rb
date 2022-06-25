@@ -1,5 +1,5 @@
-require '/home/vit/Документы/ROR/Lesson_6(7)/modules/instance_сounter.rb' 
-require '/home/vit/Документы/ROR/Lesson_6(7)/modules/validation.rb' 
+require_relative '../modules/instance_сounter.rb' 
+require_relative '../modules/validation.rb' 
 
 class Station
   include InstanceCounter
