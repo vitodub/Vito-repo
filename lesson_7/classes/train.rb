@@ -1,6 +1,6 @@
-require '/home/vit/Документы/ROR/Lesson_6(7)/modules/instance_сounter.rb' 
-require '/home/vit/Документы/ROR/Lesson_6(7)/modules/manufacturer.rb' 
-require '/home/vit/Документы/ROR/Lesson_6(7)/modules/validation.rb' 
+require_relative  '../modules/instance_сounter.rb' 
+require_relative  '../modules/manufacturer.rb' 
+require_relative  '../modules/validation.rb' 
 
 class Train
   NUMBER_FORMAT = /^[a-z0-9]{3}(-| )[a-z0-9]{2}$/i
