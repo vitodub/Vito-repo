@@ -7,7 +7,7 @@ module InstanceCounter
   module ClassMethods
     attr_reader :instances
 
-    
+    private
     attr_writer :instances
   end
 
