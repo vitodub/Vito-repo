@@ -306,7 +306,7 @@ def station_show_trains
 
     s_number = gets.to_i - 1
    
-    Station.all[s_number].trains.each do |train| 
+    Station.all[s_number].each_train do |train| 
       if Station.all[s_number].trains.empty?
         puts "Поездов на станции нет"
       else
@@ -361,7 +361,7 @@ end
 
 def train_show_wagons(t_number)
   i = 1
-  Train.all[t_number].wagons.each do |wagon| 
+  Train.all[t_number].each_wagon do |wagon| 
 
     if wagon.type == "Пассажирский"
       puts "Номер вагона: #{i}. Тип вагона: #{wagon.type}. Количество свободных мест #{wagon.free_seats}. Количество занятых мест #{wagon.o_seats}."
