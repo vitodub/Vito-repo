@@ -71,7 +71,7 @@ class Train
     @current_station == @route.stations[0] ? (puts "Эта станция начальная") : @route.stations[find_index - 1]
   end
 
-  def each_wagon(block)
+  def each_wagon(&block)
     @wagons.each(&block)
   end
 
