@@ -20,5 +20,4 @@ class Wagon
   protected
 
   attr_writer :type
-
 end
