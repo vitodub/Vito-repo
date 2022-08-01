@@ -18,8 +18,8 @@ class Route
     @stations = []
     @stations << start_station
     @stations << finish_station
-    @@routes_list << self
     validate!
+    @@routes_list << self
     register_instance
   end
 
