@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require './modules/manufacturer'
+require_relative '../modules/manufacturer'
 
 class Wagon
   include Manufacturer
