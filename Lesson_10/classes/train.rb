@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative './modules/instance_сounter' 
-require_relative './modules/validation'
-require_relative './modules/manufacturer'
-require_relative './modules/acсessors'
+require './modules/instance_сounter' 
+require './modules/validation'
+require './modules/manufacturer'
+require './modules/acсessors'
 
 class Train
   NUMBER_FORMAT = /^[a-z0-9]{3}(-| )[a-z0-9]{2}$/i.freeze
