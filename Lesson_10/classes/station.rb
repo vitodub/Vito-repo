@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative './modules/instance_сounter' 
-require_relative './modules/validation'
-require_relative './modules/acсessors'
+require './modules/instance_сounter' 
+require './modules/validation'
+require './modules/acсessors'
 
 class Station
   include InstanceCounter
