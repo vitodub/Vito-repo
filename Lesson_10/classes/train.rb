@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require '/home/sgp/Документы/ROR/Lesson_9/modules/instance_сounter'
-require '/home/sgp/Документы/ROR/Lesson_9/modules/manufacturer'
-require '/home/sgp/Документы/ROR/Lesson_9/modules/validation'
+require_relative '../modules/instance_сounter' 
+require_relative '../modules/validation'
+require_relative '../modules//manufacturer'
 
 class Train
   NUMBER_FORMAT = /^[a-z0-9]{3}(-| )[a-z0-9]{2}$/i.freeze
