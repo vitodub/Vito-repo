@@ -12,6 +12,9 @@ class Train
   include Manufacturer
   include Validation
   attr_reader :type, :speed, :current_station, :wagons, :number, :route
+  
+  validate :number, :presence
+  validate :number, :format, NUMBER_FORMAT
 
   @@trains_list = []
 
