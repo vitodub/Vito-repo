@@ -172,13 +172,12 @@ class Interface
     begin
       puts 'Введите номер поезда вида XXX-XX или XXX XX'
       number = gets.to_s
+      t_choice == 1 ? PassengerTrain.new(number) : CargoTrain.new(number)
+      puts "Создан поезд № #{number}"
     rescue RuntimeError => e
       puts e.message
       retry
     end
-
-    t_choice == 1 ? PassengerTrain.new(number) : CargoTrain.new(number)
-    puts "Создан поезд № #{number}"
   end
 
   def route_create
