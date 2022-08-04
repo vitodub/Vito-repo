@@ -7,6 +7,8 @@ require './modules/acсessors'
 class Route
   include InstanceCounter
   attr_reader :number, :stations
+  
+  validate :stations, :presence
 
   @@routes_list = []
 
