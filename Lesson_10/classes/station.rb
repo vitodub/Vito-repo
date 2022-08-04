@@ -7,6 +7,9 @@ require './modules/acсessors'
 class Station
   include InstanceCounter
   attr_reader :trains, :name
+  
+  validate :name, :presence
+  validate :name, :type, String
 
   @@stations_list = []
 
